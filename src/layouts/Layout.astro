@@ -1,0 +1,75 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="absolute">
+    <slot />
+  </body>
+</html>
+<style is:global>
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+
+  :root {
+    color-scheme: dark;
+
+    --grass: #5fbd58;
+    --bug: #92bc2c;
+    --dark: #595761;
+    --dragon: #0c69c8;
+    --electric: #f2d94e;
+    --fairy: #ee90e6;
+    --fighting: #d3425f;
+    --fire: #dc872f;
+    --flying: #a1bbec;
+    --ghost: #5f6dbc;
+    --ground: #da7c4d;
+    --ice: #75d0c1;
+    --normal: #a0a29f;
+    --poison: #b763cf;
+    --psychic: #ff2ca8;
+    --rock: #a38c21;
+    --steel: #5695a3;
+    --water: #539ddf;
+  }
+
+  ::-webkit-scrollbar {
+    visibility: hidden;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  body {
+    font-family: "Poppins", sans-serif;
+  }
+
+  .absolute {
+    height: 100vh;
+    width: 85%;
+    max-width: 1000px;
+    margin: auto;
+    background-color: #0c0c0c;
+    background-image: radial-gradient(
+      circle at 0 0,
+      #242424 1px,
+      transparent 1px
+    );
+    background-size: 16px 16px;
+  }
+</style>

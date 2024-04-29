@@ -1,0 +1,120 @@
+---
+const { name, id, img, type1, type2, height, weight, getTypeColor } =
+  Astro.props;
+---
+
+<div class="pokemon_card">
+  <div class="pokemon_sprite">
+    <img src={img} alt={name} />
+  </div>
+  <div class="pokemon_info">
+    <div class="pokemon_name_container">
+      <p class="pokemon_id">#{id}</p>
+      <h2 class="pokemon_name">{name}</h2>
+    </div>
+    <div class="pokemon_type_container">
+      {
+        type1 && (
+          <p class="pokemon_type" style={{ background: getTypeColor(type1) }}>
+            {type1}
+          </p>
+        )
+      }
+      {
+        type2 && (
+          <p class="pokemon_type" style={{ background: getTypeColor(type2) }}>
+            {type2}
+          </p>
+        )
+      }
+    </div>
+    <div class="pokemon_stats">
+      <p class="pokemon_stat">{height}M</p>
+      <p class="pokemon_stat">{weight}Kg</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .pokemon_card {
+    background: #1a1a1a;
+    box-shadow: 0 0 3rem -1rem rgba(0, 0, 0, 0.25);
+    text-transform: uppercase;
+    border-radius: 1rem;
+    padding-block: 1rem;
+    overflow: hidden;
+  }
+
+  .pokemon_card:hover {
+    transform: scale(1.05);
+    transition: all 300ms;
+  }
+
+  .pokemon_sprite {
+    padding-inline: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .pokemon_sprite img {
+    width: 100%;
+    max-width: 6rem;
+  }
+
+  .pokemon_info {
+    text-align: center;
+    padding-inline: 1rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .pokemon_name_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 0.5rem;
+  }
+
+  .pokemon_id {
+    background: #333333;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.25rem 0.5rem;
+    border-radius: 50px;
+  }
+
+  .pokemon_name {
+    font-size: 1.4rem;
+  }
+
+  .pokemon_type_container {
+    font-size: 0.75rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .pokemon_type {
+    padding: 0.2rem 0.5rem;
+    border-radius: 50px;
+  }
+
+  .pokemon_stats {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.75rem;
+  }
+
+  .pokemon_stat {
+    background: #333333;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.2rem 0.5rem;
+    border-radius: 50px;
+  }
+</style>
